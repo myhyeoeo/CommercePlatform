@@ -16,6 +16,7 @@ public class CommerceSystem {
                 System.out.println(i+1+". "+categories.get(i).getCategoryName());
             }
             System.out.println("0. 종료");
+            System.out.print("번호를 선택하세요 : ");
             int userChoice = sc.nextInt();
             if(userChoice == 0){
                 System.out.println("커머스 플랫폼을 종료합니다.");
@@ -32,9 +33,9 @@ public class CommerceSystem {
             System.out.println(i+1+". "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription());
         }
         System.out.println("0. 뒤로가기");
+        System.out.print("번호를 선택하세요 : ");
         int userChoice = sc.nextInt();
         if (userChoice == 0){
-            System.out.println("뒤로가기");
         }
         else{
             Product product = category.getProducts().get(userChoice);
