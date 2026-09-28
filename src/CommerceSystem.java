@@ -40,8 +40,10 @@ public class CommerceSystem {
                 // 카테고리 선택
                 showCategoryProducts(categories.get(userChoice - 1), sc);
             } else if (!cart.isEmpty() && userChoice == categories.size() + 1) {
-                // 장바구니 보기 로직 연결
-                cart.printCartTotal();
+                // 장바구니 모두 출력
+                System.out.println("\n아래와 같이 주문하시겠습니까?");
+                order(sc);
+
             } else if (!cart.isEmpty() && userChoice == categories.size() + 2) {
                 // 주문 취소
                 cart.clearCart();
@@ -94,5 +96,20 @@ public class CommerceSystem {
         }
         // 입력받은 번호에 해당하는 물품의 상세정보를 출력
 
+    }
+    public void order(Scanner sc){
+        cart.printCartTotal();
+        System.out.println("\n1. 주문 확정    2. 메인으로 돌아가기");
+        System.out.print("번호를 입력하세요 : ");
+        int choice = sc.nextInt();
+        if(choice == 1){
+            System.out.println("주문이 완료되었습니다!");
+        }
+        else if(choice == 2){
+            System.out.println("주문을 취소하고 메인으로 돌아갑니다");
+        }
+        else{
+            System.out.println("잘못된 번호입니다");
+        }
     }
 }
