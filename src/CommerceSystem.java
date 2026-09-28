@@ -41,10 +41,9 @@ public class CommerceSystem {
                 showCategoryProducts(categories.get(userChoice - 1), sc);
             } else if (!cart.isEmpty() && userChoice == categories.size() + 1) {
                 // 장바구니 보기 로직 연결
-                System.out.println("장바구니 보기 선택됨");
+                cart.printCartTotal();
             } else if (!cart.isEmpty() && userChoice == categories.size() + 2) {
                 // 주문하기 로직 연결
-                System.out.println("주문하기 선택됨");
             } else {
                 System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
             }
