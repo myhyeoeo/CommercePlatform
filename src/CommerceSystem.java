@@ -62,7 +62,7 @@ public class CommerceSystem {
             System.out.println("[ "+category.getCategoryName()+" 카테고리 ]");
             for(int i=0; i<category.getProducts().size(); i++){
                 Product product = category.getProducts().get(i);
-                System.out.println(i+1+". "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription());
+                System.out.println(i+1+". "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft()+"개");
             }
             System.out.println("0. 뒤로가기");
             // 선택한 카테고리의 물품 출력
@@ -103,7 +103,14 @@ public class CommerceSystem {
         System.out.print("번호를 입력하세요 : ");
         int choice = sc.nextInt();
         if(choice == 1){
+            for(CartItem cartItem : cart.getProducts()){
+                Product product = cartItem.getProduct();
+                int quantity = cartItem.getQuantity();
+                product.subProductLeft(quantity);
+            }
             System.out.println("주문이 완료되었습니다!");
+            cart.clearCart();
+            System.out.println("장바구니가 초기화되었습니다");
         }
         else if(choice == 2){
             System.out.println("주문을 취소하고 메인으로 돌아갑니다");

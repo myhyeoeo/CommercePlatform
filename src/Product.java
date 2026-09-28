@@ -27,4 +27,8 @@ public class Product {
     public String getProductName() {
         return productName;
     }
+
+    public void subProductLeft(int quantity){
+        this.productLeft -= quantity;
+    }
 }
