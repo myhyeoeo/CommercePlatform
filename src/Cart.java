@@ -18,13 +18,16 @@ public class Cart {
         for(int i=0; i<cartItemList.size(); i++){
             Product product = cartItemList.get(i).getProduct();
             System.out.println(product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 수량 : "+cartItemList.get(i).getQuantity()+"개");
-            total += product.getPrice();
+            total += product.getPrice() * cartItemList.get(i).getQuantity();
         }
 
         System.out.println("\n[ 총 주문 금액 ]");
         System.out.println(total+"원");
     }
 
+    public void clearCart(){
+        cartItemList.clear();
+    }
     public void addProduct(Product product){//장바구니 담기
         for(CartItem cartItem : cartItemList){
             if (cartItem.getProduct().getProductName().equals(product.getProductName())) {
