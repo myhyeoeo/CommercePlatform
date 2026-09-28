@@ -43,7 +43,9 @@ public class CommerceSystem {
                 // 장바구니 보기 로직 연결
                 cart.printCartTotal();
             } else if (!cart.isEmpty() && userChoice == categories.size() + 2) {
-                // 주문하기 로직 연결
+                // 주문 취소
+                cart.clearCart();
+                System.out.println("장바구니가 초기화 됩니다");
             } else {
                 System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
             }
@@ -68,7 +70,7 @@ public class CommerceSystem {
                 System.out.println("플랫폼 메인으로 돌아갑니다");
                 break;
             }
-            else{
+            else if(userChoice>0 && userChoice<=category.getProducts().size()){
                 Product product = category.getProducts().get(userChoice-1);
                 System.out.println("선택한 상품 : "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft()+"개");
                 System.out.println("\n위 상품을 장바구니에 추가하시겠습니까?");
@@ -79,6 +81,15 @@ public class CommerceSystem {
                     cart.addProduct(product);
                     System.out.println(product.getProductName()+"가 장바구니에 추가되었습니다");
                 }
+                else if(cartChoice == 2){
+                    System.out.println("장바구니 추가를 취소했습니다");
+                }
+                else{
+                    System.out.println("잘못된 번호입니다");
+                }
+            }
+            else {
+                System.out.println("잘못된 번호입니다");
             }
         }
         // 입력받은 번호에 해당하는 물품의 상세정보를 출력
