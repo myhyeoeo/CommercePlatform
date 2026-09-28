@@ -11,8 +11,9 @@ public class Main {
 
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(electronics);
+        Customer customer = new Customer("김명현","myeong@naver.com","SILVER");
 
-        CommerceSystem commerceSystem = new CommerceSystem(categoryList);
+        CommerceSystem commerceSystem = new CommerceSystem(categoryList,customer);
 
         commerceSystem.start();
     }
