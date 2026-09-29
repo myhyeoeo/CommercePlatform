@@ -50,4 +50,11 @@ public class Cart {
             return false;
         }
     }
+
+    public void removeProduct(String product){
+        if(cartItemList.isEmpty()){
+            return;
+        }
+        this.cartItemList.removeIf(cartItem -> cartItem.getProduct().getProductName().equals(product));
+    }
 }

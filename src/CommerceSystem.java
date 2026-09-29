@@ -294,14 +294,34 @@ public class CommerceSystem {
     public void adminRemove(Scanner sc){
         System.out.print("\n삭제하고싶은 상품명을 입력하세요 : ");
         String removeProductName = sc.nextLine();
+        System.out.println("\n" + removeProductName+ "을 삭제하시겠습니까?");
+        System.out.println("1. 확인    2. 취소");
+        System.out.print("번호를 입력하세요 : ");
+        int userChoice = sc.nextInt();
+        sc.nextLine();
+        if (userChoice != 1) {
+            System.out.println("삭제가 취소되었습니다.");
+            return;
+        }
+        boolean removed = false;
+        for (Category category : categories) {
+            if (category.getProducts().removeIf(p -> p.getProductName().equals(removeProductName))) {
+                removed = true;
+            }
+        }
+        if(removed){
+            cart.removeProduct(removeProductName);
+            System.out.println(removeProductName+"을 삭제했습니다");
+        }
 
     }
     public void adminReviewAll(){
         System.out.println("\n[ 전체 물품 조회 ]");
         for(int i=0; i<categories.size(); i++){
             System.out.println("\n========== "+categories.get(i).getCategoryName()+" ==========");
+            int count = 1;
             for(Product product : categories.get(i).getProducts()){
-                System.out.println(i+1+". "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft());
+                System.out.println((count++)+". "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft());
             }
         }
     }
