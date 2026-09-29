@@ -154,7 +154,6 @@ public class CommerceSystem {
 
     public void adminMode(Scanner sc){
         while(true){
-
             System.out.println("[ 관리자 모드 ]");
             System.out.println("1. 상품 추가");
             System.out.println("2. 상품 수정");
@@ -163,6 +162,7 @@ public class CommerceSystem {
             System.out.println("0. 메인으로 돌아가기");
             System.out.print("번호를 입력하세요 : ");
             int userChoice = sc.nextInt();
+            sc.nextLine();
             if(userChoice == 1){
                 adminAdd(sc);
             }
@@ -239,7 +239,7 @@ public class CommerceSystem {
         String inputProducteName = sc.nextLine();
         for(int i=0; i<categories.size(); i++){
             for(Product product : categories.get(i).getProducts()){
-                if(product.equals(inputProducteName)){
+                if(product.getProductName().equals(inputProducteName)){
                     System.out.println("현재 상품 정보 : "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft());
                     System.out.println("\n1. 가격");
                     System.out.println("2. 설명");
@@ -250,10 +250,10 @@ public class CommerceSystem {
                         adminModifyPrice(product,sc);
                     }
                     else if(userChoice == 2){
-                        adminModifyDescription(sc);
+                        adminModifyDescription(product,sc);
                     }
                     else if(userChoice == 3){
-                        adminModifyQuantity(sc);
+                        adminModifyQuantity(product, sc);
                     }
                     else{
                         System.out.println("잘못된 입력입니다");
@@ -271,11 +271,17 @@ public class CommerceSystem {
         System.out.println("\n"+product.getProductName()+"의 가격이 "+oldPrice+"원 -> "+newPrice+"원으로 수정되었습니다.");
     }
 
-    public void adminModifyDescription(){
-
+    public void adminModifyDescription(Product product, Scanner sc){
+        String oldDescription = product.getDescription();
+        System.out.println("현재 설명 : "+oldDescription);
+        System.out.print("새로운 설명을 입력해주세요 : ");
+        String newDescription = sc.nextLine();
+        product.setDescription(newDescription);
+        System.out.println("\n"+product.getProductName()+"의 설명이 변경되었습니다");
     }
 
-    public void adminModifyQuantity(){
+
+    public void adminModifyQuantity(Product product, Scanner sc){
 
     }
 }
