@@ -282,6 +282,11 @@ public class CommerceSystem {
 
 
     public void adminModifyQuantity(Product product, Scanner sc){
-
+        int oldQuantity = product.getProductLeft();
+        System.out.println("현재 재고 : "+oldQuantity+"개");
+        System.out.print("새로운 재고를 입력해주세요 : ");
+        int newQuantity = sc.nextInt();
+        product.setProductLeft(newQuantity);
+        System.out.println("\n"+product.getProductName()+"의 재고가 "+oldQuantity+"개 -> "+newQuantity+"개로 변경되었습니다.");
     }
 }
