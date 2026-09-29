@@ -151,6 +151,37 @@ public class CommerceSystem {
     }
 
     public void adminMode(Scanner sc){
+        while(true){
+
+            System.out.println("[ 관리자 모드 ]");
+            System.out.println("1. 상품 추가");
+            System.out.println("2. 상품 수정");
+            System.out.println("3. 상품 삭제");
+            System.out.println("4. 전체 상품 현황");
+            System.out.println("0. 메인으로 돌아가기");
+            System.out.print("번호를 입력하세요 : ");
+            int userChoice = sc.nextInt();
+            if(userChoice == 1){
+
+            }
+            else if(userChoice == 2){
+
+            }
+            else if(userChoice == 3){
+
+            }
+            else if(userChoice == 4){
+
+            }
+            else if(userChoice == 0){
+                break;
+            }
+            else{
+
+            }
+        }
+    }
+    public void adminAddProduct(Scanner sc){
 
     }
 }
