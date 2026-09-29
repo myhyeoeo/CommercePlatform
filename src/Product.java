@@ -44,7 +44,4 @@ public class Product {
         this.productLeft = productLeft;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
 }

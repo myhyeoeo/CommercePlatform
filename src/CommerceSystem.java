@@ -170,7 +170,7 @@ public class CommerceSystem {
                 adminModify(sc);
             }
             else if(userChoice == 3){
-
+                adminRemove(sc);
             }
             else if(userChoice == 4){
 
@@ -246,6 +246,7 @@ public class CommerceSystem {
                     System.out.println("3. 재고 수량");
                     System.out.print("수정할 항목을 선택하세요 : ");
                     int userChoice = sc.nextInt();
+                    sc.nextLine();
                     if(userChoice == 1){
                         adminModifyPrice(product,sc);
                     }
@@ -288,5 +289,11 @@ public class CommerceSystem {
         int newQuantity = sc.nextInt();
         product.setProductLeft(newQuantity);
         System.out.println("\n"+product.getProductName()+"의 재고가 "+oldQuantity+"개 -> "+newQuantity+"개로 변경되었습니다.");
+    }
+
+    public void adminRemove(Scanner sc){
+        System.out.print("\n삭제하고싶은 상품명을 입력하세요 : ");
+        String removeProductName = sc.nextLine();
+
     }
 }
