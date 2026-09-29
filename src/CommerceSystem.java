@@ -173,7 +173,7 @@ public class CommerceSystem {
                 adminRemove(sc);
             }
             else if(userChoice == 4){
-
+                adminReviewAll();
             }
             else if(userChoice == 0){
                 break;
@@ -295,5 +295,14 @@ public class CommerceSystem {
         System.out.print("\n삭제하고싶은 상품명을 입력하세요 : ");
         String removeProductName = sc.nextLine();
 
+    }
+    public void adminReviewAll(){
+        System.out.println("\n[ 전체 물품 조회 ]");
+        for(int i=0; i<categories.size(); i++){
+            System.out.println("\n========== "+categories.get(i).getCategoryName()+" ==========");
+            for(Product product : categories.get(i).getProducts()){
+                System.out.println(i+1+". "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft());
+            }
+        }
     }
 }
