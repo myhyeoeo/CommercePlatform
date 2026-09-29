@@ -167,7 +167,7 @@ public class CommerceSystem {
                 adminAdd(sc);
             }
             else if(userChoice == 2){
-
+                adminModify(sc);
             }
             else if(userChoice == 3){
 
@@ -231,6 +231,38 @@ public class CommerceSystem {
         else{
             System.out.println("잘못된 번호입니다\n");
         }
+
+    }
+
+    public void adminModify(Scanner sc){
+        System.out.print("\n수정할 상품명을 입력하세요 : ");
+        String inputProducteName = sc.nextLine();
+        for(int i=0; i<categories.size(); i++){
+            for(Product product : categories.get(i).getProducts()){
+                if(product.equals(inputProducteName)){
+                    System.out.println("현재 상품 정보 : "+product.getProductName()+" | "+product.getPrice()+"원 | "+product.getDescription()+" | 재고 : "+product.getProductLeft());
+                    System.out.println("\n1. 가격");
+                    System.out.println("2. 설명");
+                    System.out.println("3. 재고 수량");
+                    System.out.print("수정할 항목을 선택하세요 : ");
+                    int userChoice = sc.nextInt();
+                    if(userChoice == 1){
+                        adminModifyPrice();
+                    }
+                    else if(userChoice == 2){
+                        adminModifyDescription();
+                    }
+                    else if(userChoice == 3){
+                        adminModifyQuantity();
+                    }
+                    else{
+                        System.out.println("잘못된 입력입니다");
+                    }
+                }
+            }
+        }
+    }
+    public void adminModifyPrice(){
 
     }
 }
