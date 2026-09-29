@@ -132,15 +132,25 @@ public class CommerceSystem {
 
     public void startAdminMode(Scanner sc){
         int count = 0 ;
+        boolean authenticated = false;
         while(count<3){
             System.out.print("관리자 비밀번호 입력해주세요 : ");
             String inputPassword = sc.nextLine();
             count++;
             if(admin.authenticate(inputPassword)){
+                authenticated = true;
                 break;
             }
             System.out.println(count + "회 비밀번호 오입력");
         }
-        System.out.println("메인 화면으로 돌아갑니다");
+        if(!authenticated){
+            System.out.println("메인 화면으로 돌아갑니다");
+            return;
+        }
+        adminMode(sc);
+    }
+
+    public void adminMode(Scanner sc){
+
     }
 }
