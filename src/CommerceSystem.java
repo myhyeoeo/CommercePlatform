@@ -247,13 +247,13 @@ public class CommerceSystem {
                     System.out.print("수정할 항목을 선택하세요 : ");
                     int userChoice = sc.nextInt();
                     if(userChoice == 1){
-                        adminModifyPrice();
+                        adminModifyPrice(product,sc);
                     }
                     else if(userChoice == 2){
-                        adminModifyDescription();
+                        adminModifyDescription(sc);
                     }
                     else if(userChoice == 3){
-                        adminModifyQuantity();
+                        adminModifyQuantity(sc);
                     }
                     else{
                         System.out.println("잘못된 입력입니다");
@@ -262,7 +262,20 @@ public class CommerceSystem {
             }
         }
     }
-    public void adminModifyPrice(){
+    public void adminModifyPrice(Product product, Scanner sc){
+        int oldPrice = product.getPrice();
+        System.out.println("현재 가격 : "+oldPrice);
+        System.out.print("새로운 가격을 입력해주세요 : ");
+        int newPrice = sc.nextInt();
+        product.setPrice(newPrice);
+        System.out.println("\n"+product.getProductName()+"의 가격이 "+oldPrice+"원 -> "+newPrice+"원으로 수정되었습니다.");
+    }
+
+    public void adminModifyDescription(){
+
+    }
+
+    public void adminModifyQuantity(){
 
     }
 }

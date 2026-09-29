@@ -31,4 +31,20 @@ public class Product {
     public void subProductLeft(int quantity){
         this.productLeft -= quantity;
     }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setProductLeft(int productLeft) {
+        this.productLeft = productLeft;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 }
