@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CommerceSystem {
+    private Admin admin;
     private List<Category> categories;
     private Customer customer;
     private Cart cart;
@@ -11,6 +12,7 @@ public class CommerceSystem {
         this.categories = categories;
         this.customer = customer;
         this.cart = new Cart(customer);
+        this.admin = new Admin("admin123");
     }
     // 생성자 : Category 리스트를 받아와서 객체 생성
 
@@ -28,6 +30,8 @@ public class CommerceSystem {
                 System.out.println(categories.size()+1+". 장바구니 확인   | 장바구니를 확인 후 주문합니다");
                 System.out.println(categories.size()+2+". 주문 취소    | 진행중인 주문을 취소합니다.");
             }//장바구니에 무언가 들어있을 때 출력
+
+            System.out.println("99. 관리자 모드");
             System.out.print("번호를 선택하세요 : ");
             int userChoice = sc.nextInt();
 
@@ -39,16 +43,22 @@ public class CommerceSystem {
             if (userChoice > 0 && userChoice <= categories.size()) {
                 // 카테고리 선택
                 showCategoryProducts(categories.get(userChoice - 1), sc);
-            } else if (!cart.isEmpty() && userChoice == categories.size() + 1) {
+            }
+            else if (!cart.isEmpty() && userChoice == categories.size() + 1) {
                 // 장바구니 모두 출력
                 System.out.println("\n아래와 같이 주문하시겠습니까?");
                 order(sc);
 
-            } else if (!cart.isEmpty() && userChoice == categories.size() + 2) {
+            }
+            else if (!cart.isEmpty() && userChoice == categories.size() + 2) {
                 // 주문 취소
                 cart.clearCart();
                 System.out.println("장바구니가 초기화 됩니다");
-            } else {
+            }
+            else if(userChoice == 99){
+
+            }
+            else {
                 System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
             }
 
@@ -118,5 +128,19 @@ public class CommerceSystem {
         else{
             System.out.println("잘못된 번호입니다");
         }
+    }
+
+    public void startAdminMode(Scanner sc){
+        int count = 0 ;
+        while(count<3){
+            System.out.print("관리자 비밀번호 입력해주세요 : ");
+            String inputPassword = sc.nextLine();
+            count++;
+            if(admin.authenticate(inputPassword)){
+                break;
+            }
+            System.out.println(count + "회 비밀번호 오입력");
+        }
+        System.out.println("메인 화면으로 돌아갑니다");
     }
 }
