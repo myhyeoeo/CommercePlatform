@@ -52,7 +52,7 @@ public class Cart {
     }
 
     public void removeProductInCart(Scanner sc) {
-        if(cartItemList.isEmpty()){
+        if (cartItemList.isEmpty()) {
             System.out.println("장바구니가 비어있습니다.");
             return;
         }
@@ -66,6 +66,6 @@ public class Cart {
             return;
         }
         this.cartItemList.removeIf(cartItem -> cartItem.getProduct().getProductName().equals(product));
-        System.out.println(product+"가 장바구니에서 삭제되었습니다.");
+        System.out.println(product + "가 장바구니에서 삭제되었습니다.");
     }
 }
