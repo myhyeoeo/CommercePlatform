@@ -16,7 +16,7 @@ public class CommerceSystem {
         this.cart = new Cart(customer);
         this.admin = new Admin("admin123");
         this.adminController = new AdminController(admin, categories, cart);
-        this.orderController = new OrderController(cart);
+        this.orderController = new OrderController(cart, customer);
     }
     // 생성자 : Category 리스트를 받아와서 객체 생성
 

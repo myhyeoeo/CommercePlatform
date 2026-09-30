@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class OrderController {
     private Cart cart;
+    private Customer customer;
 
-    public OrderController(Cart cart) {
+    public OrderController(Cart cart, Customer customer) {
         this.cart = cart;
+        this.customer = customer;
     }
 
     public void showCategoryProducts(Category category, Scanner sc) {
@@ -53,6 +55,7 @@ public class OrderController {
         System.out.print("번호를 입력하세요 : ");
         int choice = sc.nextInt();
         sc.nextLine();
+        int total = 0;
         if (choice == 1) {
             for (CartItem cartItem : cart.getProducts()) {
                 Product product = cartItem.getProduct();
@@ -60,6 +63,10 @@ public class OrderController {
                 product.subProductLeft(quantity);
             }
             System.out.println("주문이 완료되었습니다!");
+            for (CartItem cartItem : cart.getProducts()) {
+                total += cartItem.getProduct().getPrice();
+            }
+            System.out.println("총 결제 금액 : " + (total - total * customer.getGrade().getDiscountRate()));
             cart.clearCart();
             System.out.println("장바구니가 초기화되었습니다");
         } else if (choice == 2) {
