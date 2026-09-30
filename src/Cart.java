@@ -66,5 +66,6 @@ public class Cart {
             return;
         }
         this.cartItemList.removeIf(cartItem -> cartItem.getProduct().getProductName().equals(product));
+        System.out.println(product+"가 장바구니에서 삭제되었습니다.");
     }
 }

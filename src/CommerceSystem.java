@@ -59,7 +59,7 @@ public class CommerceSystem {
                 cart.clearCart();
                 System.out.println("장바구니가 초기화 됩니다");
             } else if (userChoice == categories.size() + 3) {
-
+                cart.removeProductInCart(sc);
             } else if (userChoice == 99) {
                 adminController.startAdminMode(sc);
             } else {
