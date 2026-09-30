@@ -2,17 +2,20 @@ public class CartItem {
     private Product product;
     private int quantity;
 
-    public CartItem(Product product,int quantity){
+    public CartItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
-    public void addQuantity(int count){
+
+    public void addQuantity(int count) {
         quantity += count;
     }
-    public Product getProduct(){
+
+    public Product getProduct() {
         return product;
     }
-    public int getQuantity(){
+
+    public int getQuantity() {
         return quantity;
     }
 }

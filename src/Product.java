@@ -5,7 +5,7 @@ public class Product {
     private String description; // 설명
     private int productLeft; // 재고
 
-    public Product(String productName, int price, String description, int productLeft){
+    public Product(String productName, int price, String description, int productLeft) {
         this.productName = productName;
         this.price = price;
         this.description = description;
@@ -28,7 +28,7 @@ public class Product {
         return productName;
     }
 
-    public void subProductLeft(int quantity){
+    public void subProductLeft(int quantity) {
         this.productLeft -= quantity;
     }
 
