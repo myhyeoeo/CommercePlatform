@@ -4,11 +4,19 @@ public enum Grade {
     GOLD("Gold",0.1),
     PLATINUM("Platinum",0.15);
 
-    private final String grade;
-    private final double discount;
+    private final String gradeName;
+    private final double discountRate;
 
-    Grade(String grade, double discount) {
-        this.grade = grade;
-        this.discount = discount;
+    Grade(String gradeName, double discountRate) {
+        this.gradeName = gradeName;
+        this.discountRate = discountRate;
+    }
+
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
+    public String getGradeName() {
+        return gradeName;
     }
 }
