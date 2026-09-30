@@ -33,6 +33,7 @@ public class CommerceSystem {
                 System.out.println("\n[ 주문 관리 ]");
                 System.out.println(categories.size() + 1 + ". 장바구니 확인   | 장바구니를 확인 후 주문합니다");
                 System.out.println(categories.size() + 2 + ". 주문 취소    | 진행중인 주문을 취소합니다.");
+                System.out.println(categories.size() + 3 + ". 주문 수정    | 장바구에서 특정 상품을 제합니다.");
             }//장바구니에 무언가 들어있을 때 출력
 
             System.out.println("99. 관리자 모드");
@@ -57,6 +58,8 @@ public class CommerceSystem {
                 // 주문 취소
                 cart.clearCart();
                 System.out.println("장바구니가 초기화 됩니다");
+            } else if (userChoice == categories.size() + 3) {
+
             } else if (userChoice == 99) {
                 adminController.startAdminMode(sc);
             } else {

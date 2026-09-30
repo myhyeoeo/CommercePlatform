@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Cart {
     private Customer customer;
@@ -52,6 +49,16 @@ public class Cart {
         } else {
             return false;
         }
+    }
+
+    public void removeProductInCart(Scanner sc) {
+        if(cartItemList.isEmpty()){
+            System.out.println("장바구니가 비어있습니다.");
+            return;
+        }
+        System.out.print("제거할 상품을 입력하세요 : ");
+        String productName = sc.nextLine();
+        removeProduct(productName);
     }
 
     public void removeProduct(String product) {
