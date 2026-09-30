@@ -32,7 +32,7 @@ public class Main {
         categoryList.add(books);
         categoryList.add(food);
 
-        Customer customer = new Customer("김명현", "myeong@naver.com", "SILVER");
+        Customer customer = new Customer("김명현", "myeong@naver.com", Grade.GOLD);
 
         CommerceSystem commerceSystem = new CommerceSystem(categoryList, customer);
 

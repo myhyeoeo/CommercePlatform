@@ -1,9 +1,9 @@
 public class Customer {
     private String name;
     private String email;
-    private String grade;
+    private Grade grade;
 
-    public Customer(String name, String email, String grade) {
+    public Customer(String name, String email, Grade grade) {
         this.name = name;
         this.email = email;
         this.grade = grade;
@@ -13,7 +13,7 @@ public class Customer {
         return email;
     }
 
-    public String getGrade() {
+    public Grade getGrade() {
         return grade;
     }
 

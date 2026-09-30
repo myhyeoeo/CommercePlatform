@@ -19,4 +19,13 @@ public enum Grade {
     public String getGradeName() {
         return gradeName;
     }
+
+    public static Grade fromString(String inputGrade) {
+        for (Grade grade : values()) {
+            if (grade.name().equalsIgnoreCase(inputGrade)) {
+                return grade;
+            }
+        }
+        return BRONZE; // 일치하는 타입이 없으면 기본값 설정
+    }
 }
