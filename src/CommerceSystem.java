@@ -8,20 +8,21 @@ public class CommerceSystem {
     private Cart cart;
     private AdminController adminController;
     private OrderController orderController;
+    private Scanner sc;
     // 속성 : Category를 다루는 리스트
 
-    public CommerceSystem(List<Category> categories, Customer customer) {
+    public CommerceSystem(List<Category> categories, Customer customer, Scanner sc) {
         this.categories = categories;
         this.customer = customer;
         this.cart = new Cart(customer);
         this.admin = new Admin("admin123");
         this.adminController = new AdminController(admin, categories, cart);
         this.orderController = new OrderController(cart, customer);
+        this.sc = new Scanner(System.in);
     }
     // 생성자 : Category 리스트를 받아와서 객체 생성
 
     public void start() {
-        Scanner sc = new Scanner(System.in);
         while (true) {
             // 출력문 출력
             System.out.println("[ 실시간 커머스 플랫폼 메인 ]");

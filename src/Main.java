@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,8 +34,8 @@ public class Main {
         categoryList.add(food);
 
         Customer customer = new Customer("김명현", "myeong@naver.com", Grade.GOLD);
-
-        CommerceSystem commerceSystem = new CommerceSystem(categoryList, customer);
+        Scanner sc = new Scanner(System.in);
+        CommerceSystem commerceSystem = new CommerceSystem(categoryList, customer, sc);
 
         commerceSystem.start();
     }
